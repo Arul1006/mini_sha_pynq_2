@@ -4,9 +4,9 @@
 module mini_hash_alu (
     input  wire [1:0]  aluop,
     input  wire [15:0] A,      // e / h / a / Wt-2
-    input  wire [15:0] B,      // f / Kt/ b / Wt-5
-    input  wire [15:0] C,      // g / d / c / Wt-8
-    input  wire [15:0] D_prime,// Wt / T_x / (T_y-d) / Wt-11
+    input  wire [15:0] B,      // f / Kt/ b / Wt-4
+    input  wire [15:0] C,      // g / d / c / Wt-7
+    input  wire [15:0] D_prime,// Wt / T_x / (T_y-d) / Wt-8
     output reg  [15:0] result
 );
 
@@ -29,7 +29,7 @@ module mini_hash_alu (
             2'b10: // T_z = Σ0(a) + Maj(a,b,c) + (T_y - d) + 0
                 result = sig_upper_0_A + maj_ABC + D_prime;
 
-            2'b11: // Wt_expand = σ1(Wt-2) + Wt-5 + σ0(Wt-8) + Wt-11
+            2'b11: // Wt_expand = σ1(Wt-2) + Wt-4 + σ0(Wt-7) + Wt-8
                 result = sig_lower_1_A + B + sig_lower_0_C + D_prime;
 
             default:

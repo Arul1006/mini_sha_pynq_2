@@ -267,6 +267,7 @@ module tb_mini_sha256_stream;
 
         // Test 2: Multi-block string
         $display("Test 2: Message = \"Hello World! This is a test of the mini SHA-256.\"");
+        //send_string("hello World! This is a test of the mini SHA-256.", 48);
         send_string("Hello World! This is a test of the mini SHA-256.", 48);
         verify_hash(128'h0e25_3e5a_0068_38af_8bb6_bf9c_bb64_5492);
 
